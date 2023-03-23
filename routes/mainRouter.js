@@ -10,13 +10,13 @@ router.get('/',(req,res,next)=>{
 
 
 router.get('/users',(req,res,next)=>{
-
+res.render('outputPage.ejs',{pageTitle:'All Users',users:products});
 })
 
 router.post('/users',(req,res,next)=>{
-products.add(req.body.name);
-
-res.redirect('/');
+products.push(req.body);
+console.log(req.body.name);
+res.redirect('/users');
 })
 
 module.exports=router;
